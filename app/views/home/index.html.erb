@@ -1,0 +1,16 @@
+<h1>Title Goes here</h1>
+<p>Welcome</p>
+
+<h1>Welcome to Bunnyhug</h1>
+<div>
+  <%= link_to 'All Products', root_path(:category => '') %>
+  <%= link_to 'Mens T-Shirts', root_path(:category => "Mens") %>
+  <%= link_to 'Womens T-Shirts', root_path(:category => "Womens") %>
+  <% @products.each do |product| %>
+  <div>
+  <%= render :partial => 'product', :object => product, :as => 'product' %>
+  <%= link_to 'View Product', home_path(product) %>
+  </div>
+  <% end %>
+</div>
+<br />
