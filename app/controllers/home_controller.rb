@@ -7,11 +7,15 @@ class HomeController < ApplicationController
      @category = ""
    else
      @category = params[:category]
-
    end
    
+   if @category == "sale" then
+     @products = Product.where(:sale => true)
+   else
+     
        @products = Product.where("category LIKE '"+@category+"%'")
-       
+   end
+   
   end
   
   def show

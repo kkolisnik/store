@@ -6,6 +6,8 @@
   <%= link_to 'All Products', root_path(:category => '') %>
   <%= link_to 'Mens T-Shirts', root_path(:category => "Mens") %>
   <%= link_to 'Womens T-Shirts', root_path(:category => "Womens") %>
+  
+  <%= link_to 'On Sale', root_path(:category => "sale") %>
   <% @products.each do |product| %>
   <div>
   <%= render :partial => 'product', :object => product, :as => 'product' %>
