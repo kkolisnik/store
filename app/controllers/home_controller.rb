@@ -11,7 +11,11 @@ class HomeController < ApplicationController
    
    if @category == "sale" then
      @products = Product.where(:sale => true)
+   elsif @category == "new" then
+     @products = Product.all(:order => 'created_at').take(10)
+
    else
+     
      
        @products = Product.where("category LIKE '"+@category+"%'")
    end
