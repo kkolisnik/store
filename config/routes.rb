@@ -1,9 +1,10 @@
 Store::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   ##get "home/index"
   root :to => 'home#index'
   ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :products
 

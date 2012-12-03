@@ -1,19 +1,27 @@
-<h1>Title Goes here</h1>
-<p>Welcome</p>
-
-<h1>Welcome to Bunnyhug!!!</h1>
-<div>
-  <%= link_to 'All Products', root_path(:category => '') %>
-  <%= link_to 'Mens T-Shirts', root_path(:category => "Mens") %>
-  <%= link_to 'Womens T-Shirts', root_path(:category => "Womens") %>
+<header>
+  <img class="logo" src="assets/bunnyhugshoplogo.png" alt="logo" />
+</header>
+  <nav>
+  <%= link_to 'All Products', root_path %>
+  <%= link_to 'Mens Clothing', root_path(:category => "Mens") %>
+  <%= link_to 'Womens Clothing', root_path(:category => "Womens") %>
   
   <%= link_to 'On Sale', root_path(:category => "sale") %>
   <%= link_to 'New Products', root_path(:category => "new") %>
-  <% @products.each do |product| %>
-  <div>
-  <%= render :partial => 'product', :object => product, :as => 'product' %>
-  <%= link_to 'View Product', home_path(product) %>
+  </nav>
+    
+  <div id="products">
+    <ul>
+      <% @products.each do |product| %>
+      <li>
+        <%= link_to product.product, home_path(product) %><br />
+        <%= render :partial => 'product', :object => product, :as => 'product' %>
+        <%= link_to 'View Product', home_path(product) %>
+      </li>
+      <% end %>
+    </ul>
   </div>
-  <% end %>
-</div>
+<footer>
+  <p>Bunnyhug Logo Copyright Kelly Kolisnik</p>
+</footer>
 <br />

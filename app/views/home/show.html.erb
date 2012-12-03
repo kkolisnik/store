@@ -1,2 +1,24 @@
-<%= render :partial => 'product', :object => @product, :as => 'product' %>
-<%= @product.description %>
+<header>
+  <img class="logo" src="/assets/bunnyhugshoplogo.png" alt="logo" />
+</header>
+<nav>
+  <%= link_to 'All Products', root_path %>
+  <%= link_to 'Mens Clothing', root_path(:category => "Mens") %>
+  <%= link_to 'Womens Clothing', root_path(:category => "Womens") %>
+  
+  <%= link_to 'On Sale', root_path(:category => "sale") %>
+  <%= link_to 'New Products', root_path(:category => "new") %>
+</nav>
+    
+<div id="description">
+  <table>
+    <tr>
+      <td><%= render :partial => 'product', :object => @product, :as => 'product' %></td>
+      <td><h1><%= @product.product %></h1><%= @product.description %></td>
+    </tr>
+  </table>
+</div>
+
+<footer>
+  <p>Bunnyhug Logo Copyright Kelly Kolisnik</p>
+</footer>

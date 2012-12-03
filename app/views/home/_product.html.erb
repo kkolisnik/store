@@ -1,8 +1,9 @@
-<%= image_tag product.image, :width => '70' %>
-<%= product.product %><br />
 
-<% if product.sale %>
- $<%= product.sale_price %>
+<%= image_tag product.image, :alt => product.product %>
+<br />
+<span class="price"><% if product.sale %>
+ <b>Sale</b> $<%= product.sale_price %>
   <% else %>
     $<%= product.price %>
-  <% end %>
+<% end %>
+</span>
