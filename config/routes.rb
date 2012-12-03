@@ -1,4 +1,6 @@
 Store::Application.routes.draw do
+  resources :customers
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ##get "home/index"
